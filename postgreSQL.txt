@@ -1,0 +1,8 @@
+-- Pour se connecter à une BDD test
+	- \l Afficher la liste des BD
+	- \c test
+	- \d: pour voir le contenu d'une table
+	- \d person: pour mieux voir la table person
+	- BIGSERIAL: un ebtier qui s'auto-incrémente
+	-\du: voir le ou les superUser
+	- GRANT ALL PRIVILEGES ON DATABASE "student" to postgres; Faire de "student" un superUser comme postgres

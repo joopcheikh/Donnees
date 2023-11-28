@@ -1,0 +1,89 @@
+-- Un client informatique est un ordinateur ou une application qui envoie des requêtes à un serveur.
+
+-- L'API est une solution informatique qui permet à des applications de communiquer entre elles et de s'échanger
+	mutuellement des services ou des données.
+	Le langage des API, sorte d'esperanto universel, permet au logiciel sollicité de comprendre ce qui est demandé,
+	puis de réaliser les actions et de délivrer les contenus demandés (voir schéma ci-dessous).
+
+-- Postman: Elle facilite la construction de nos requêtes. C'est donc l'outil idéal pour tester des API sans devoir 
+	    utiliser de code. C'est le client qui nous permet d'envoyer nos requetes.
+
+-- controller: controler un objet ou une partie de l'application
+
+-- Inversion: Donner le doit au Framework(spring) une application ou une partie d'une App
+
+-- Inversion de Control: Permet au framework(spring) d'instancier et de gérer nos objets en fonction de notre configuration
+
+-- @RestController: Controlleur exposer pour les API rest
+
+-- @RequestMapping: Permet de définir les URL qu'on veut traiter
+
+
+-- @GetMapping: permet d'intercepter toutes les requêtes HTTP GET de la forme: http://localhost:8080/springboot-restclient/login.
+		C'est cette requête qui déclenche l'initialisation de la vue.
+
+-- Service layer nous pert d'accéder à la BDD.
+		il permet aussi de nous transmettre les données de la BD
+		Il joue le role d'intermediaire entre le client et la BD
+
+-- @Component est un stéréotype générique puisqu'il indique simplement que cette classe doit être utilisée
+	pour instancier un bean.
+
+--  Un Bean est un objet Java instancié qui est géré par le conteneur IoC Spring. 
+
+-- L'annotation @Autowired. L'annotation @Autowired permet d'activer l'injection automatique de dépendance.
+
+	on définie la classe StudentServiceLayer comme @Component et on va définir @Autowired
+	@Service fait pres que la meme chose que @Component
+
+--  IoC (Inversion of control): , est un processus qui définit les dépendances d'un objet sans avoir à les créer.
+
+-- L'injection de dépendances (Dependency injection) est un mécanisme qui permet d'implémenter le principe de 
+	l'inversion de contrôle (souvent abrégé par l'acronyme IoC). Elle consiste à injecter dynamiquement les 
+	dépendances pour différentes classes en s'appuyant sur un ou plusieurs modules.
+
+-- JPA (Java Persistence Api): 
+	La couche JPA  permet de faire le pont entre le monde relationnel de la base de données et le monde objet manipulé par les programmes Java.
+	Ce pont est fait par configuration et il y a deux façons de le faire :
+	
+    	1- avec des fichiers XML. C'était quasiment l'unique façon de faire jusqu'à l'avènement du JDK 1.5
+   	2- avec des annotations Java depuis le JDK 1.5
+
+	* @Entity: est la première annotation indispensable. Elle se place avant la ligne qui déclare la classe et indique que la classe en question
+	doit être gérée par la couche de persistance JPA. En l'absence de cette annotation, toutes les autres annotations JPA seraient ignorées.
+	
+	* @Table: désigne la table de la base de données dont la classe est une représentation.
+	Son principal argument est name qui désigne le nom de la table. 
+	 En l'absence de cet argument, la table portera le nom de la classe, ici [Personne]. Dans notre exemple, l'annotation @Table est donc superflue.
+	
+	* @Id:  sert à désigner le champ dans la classe qui est image de la clé primaire de la table.
+	Cette annotation est obligatoire. Elle indique ici que le champ id de la ligne 11 est l'image de la clé primaire de la table.
+	
+	* @Column sert à faire le lien entre un champ de la classe et la colonne de la table dont le champ est l'image. 
+	  L'attribut name indique le nom de la colonne dans la table. En l'absence de cet attribut, la colonne porte le même nom que le champ.
+
+	* @GeneratedValue: indique comment est générée la clé primaire lorsqu'elle est générée automatiquement par le SGBD.
+		Cette annotation indique que la clé primaire est générée de façon automatique lors de l’insertion en base.
+		Sans cette annotation, la valeur de l’identifiant de la clé primaire doit être affectée avant l’insertion en base.
+
+		Strategy : Permet de définir le mode de génération de la clé primaire
+		
+			1- Strategy = GenerationType.AUTO : La génération de la clé primaire est laissée à l’implémentation. 
+			   C’est Hibernate qui s’en charge et qui crée une séquence unique sur tout le schéma via la table hibernate_sequence.
+
+			2- Strategy = GenerationType. IDENTITY : La génération de la clé primaire se fera à partir d’une identité propre au SGBD.
+			   Il utilise un type de colonne spéciale à la base de données.
+			   Exemple pour MySQL, il s’agit d’un AUTO_INCREMENT.
+	
+			3- Strategy = GenerationType. TABLE : La génération de la clé primaire se fera en utilisant une table dédiée hibernate_sequence
+			   qui stocke les noms et les valeurs des séquences.
+
+			
+
+-- HIBERNATE: permet de représenter une base de données en objets Java et vice versa.
+	      C'est une implémentation de l'interface JPA
+
+-- @Repository:  est une annotation Spring pour indiquer que la classe a pour rôle de communiquer avec une source de 
+		données (en l'occurrence la base de données). 
+
+-- @RequiredArgsConstructor:  génère un constructeur avec 1 paramètre pour chaque champ nécessitant un traitement spécial.

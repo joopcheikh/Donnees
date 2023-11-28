@@ -1,0 +1,45 @@
+- Proceed: Continuer
+- Pace: propre rythme
+- Enroll: s'inscrire
+- Amazing: Incroyable
+- Bunch: Bouquet
+- Entire: Complet
+- as well as: Aussi bien que
+- Restful: Reposant
+- so far: jusqu'ici
+- within: dans
+- In order for: Pour que ...
+- Layer: Couche
+- layout: disposition/schéma
+- surround: Entouré
+- to worry: s'inquiéter
+- stuff: Truc
+- auto wired: cabler automatiquement
+- Go aheagd: Allez-y
+- Otherwise: par ailleur/d'une autre manière/à défault...
+- Grab: Saisir
+- Reliable: fiable
+- All right, so let's go ahead
+- engine: moteur
+- leads view: vue des propects
+- fancy: fantaisie
+- scary : effrayant
+- throughout: Tout au long de
+- credential: accrédité
+- What's going on guys: Que se passe t-il les gars
+- further: plus loin
+- we can even go step further: nous pouvons meme aller plus loin
+- sequel: suite
+- let's grab: saisissons
+- row: rangée
+- boilerplate: Passe-partout
+- shine: Briller
+- Let's kick of this: commençcons par cela
+- snapshot: instantané
+- Remote: télécommande
+- straightfoward: direct
+- Mainly: principalement
+- Brand: Marque
+- Tracked : Suivi
+- Wonder: merveille
+- Not that One : pas cela
