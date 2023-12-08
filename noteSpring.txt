@@ -10,7 +10,7 @@
 
 -- controller: controler un objet ou une partie de l'application
 
--- Inversion: Donner le doit au Framework(spring) une application ou une partie d'une App
+-- Inversion: Donner le droit au Framework(spring) une application ou une partie d'une App
 
 -- Inversion de Control: Permet au framework(spring) d'instancier et de gérer nos objets en fonction de notre configuration
 
@@ -87,3 +87,119 @@
 		données (en l'occurrence la base de données). 
 
 -- @RequiredArgsConstructor:  génère un constructeur avec 1 paramètre pour chaque champ nécessitant un traitement spécial.
+
+private final EnitityManager em;
+
+CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+
+CriteriaQuery<Employee> criteriaQuery = criteriaBuilder.createQuery(Employee.class)
+
+Root<Employee>root = criteriaQuery.from(Employee.class)
+
+Predicate firstnamePredicate = criteriaBuilder.like(root.get("firstname: ", "%" + firstname + "%");
+Predicate lastnamePredicate = criteriaBuilder.like(rot.get("firstname: ", "%" + lastname + "%");
+Predicate emailPredicate = criteriaBuilder.like(root.get("emai: ", "%" + email + "%");
+
+Predicate firstnameOrLastnameOrEmailPredicate = criteriaBuilder.or(firstnamePredicate, lastnamePredicate, emailPredicate)
+
+criteriaQuery.where(firstnameOrLastnameOrEmailPredicate);
+
+TypedQuery<Employee> query = em.createQuery(criteriaQuery);
+
+return query.getResultList()
+
+--------------------------------------------------------------------------------------------------------------
+
+private final EntityManager em = null;
+
+public List<Employee> findAllBySimpleQuery(String firstname, String lastname)
+{
+    CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+
+    CriteriaQuery criteriaQuery = criteriaBuilder.createQuery(Employee.class);
+
+    Root<Employee> root = criteriaQuery.from(Employee.class);
+
+    Predicate firstnamePredicate = criteriaBuilder.like(root.get("firstname", "%" + firstname + "%");
+
+    Predicate lastnamePredicate = criteriaBuilder.like(root.get("lastname", "%" + lastname + "%");
+
+    Predicate firstnameOrlastnamePredicate = criteriaBuilder.or(firstnamePredicate, lastnamePredicate);
+
+    criteriaQuery.where(firstnameOrlastnamePredicate);
+
+    TypedQuery<Employee> query = em.createQuery(criteriaQuery);
+
+    return query.getResultList()
+} 
+
+
+
+
+spring.flyway.baseline-on-migrate=true
+spring.flyway.enabled=true
+spring.flyway.user=postgres
+spring.flyway.password=aaaa
+spring.flyway.baseline-description="init"
+spring.flyway.baseline-version=0
+
+
+CREATE TABLE IF NOT EXISTS test.student
+(
+    birthdate date NOT NULL,
+    id integer NOT NULL,
+    school_id integer,
+    speciality_id integer,
+    email character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    firstname character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    lastname character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT student_pkey PRIMARY KEY (id),
+    CONSTRAINT student_firstname_key UNIQUE (firstname),
+    CONSTRAINT fk1vm0oqhk9viil6eocn49rj1l9 FOREIGN KEY (school_id)
+        REFERENCES test.school (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT fkt434hun0i4tv58xnfvkbttk7v FOREIGN KEY (speciality_id)
+        REFERENCES test.speciality (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+CREATE TABLE IF NOT EXISTS test.school
+(
+    id integer NOT NULL,
+    number_of_students integer NOT NULL,
+    name character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT school_pkey PRIMARY KEY (id)
+)
+
+CREATE TABLE IF NOT EXISTS test.speciality
+(
+    id integer NOT NULL,
+    name character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT speciality_pkey PRIMARY KEY (id)
+)
+
+CREATE TABLE IF NOT EXISTS test.teacher
+(
+    id integer NOT NULL,
+    firstname character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    lastname character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT teacher_pkey PRIMARY KEY (id)
+)
+
+
+CREATE TABLE IF NOT EXISTS test.student_teacher
+(
+    student_id integer NOT NULL,
+    teacher_id integer NOT NULL,
+    CONSTRAINT fk3f00dinmqlkrlgtsb7dk4r4m2 FOREIGN KEY (student_id)
+        REFERENCES test.student (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT fkir46r2ks4pogyv4qi8arf1s04 FOREIGN KEY (teacher_id)
+        REFERENCES test.teacher (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+

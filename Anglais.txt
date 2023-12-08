@@ -43,3 +43,10 @@
 - Tracked : Suivi
 - Wonder: merveille
 - Not that One : pas cela
+- Embedded: Intégré
+- regarding: Concernant
+- claim: Réclamé
+- Fetched: récupéré
+- either: soit
+- neither: ni l'un, ni l'autre
+- Workflow: Flux de travail
