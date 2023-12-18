@@ -2,7 +2,8 @@
 	- \l Afficher la liste des BD
 	- \c test
 	- \d: pour voir le contenu d'une table
+	- \d: pour voir la liste des tables
 	- \d person: pour mieux voir la table person
-	- BIGSERIAL: un ebtier qui s'auto-incrémente
+	- BIGSERIAL: un entier qui s'auto-incrémente
 	-\du: voir le ou les superUser
 	- GRANT ALL PRIVILEGES ON DATABASE "student" to postgres; Faire de "student" un superUser comme postgres
